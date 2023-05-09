@@ -1,0 +1,15 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <h3><%= @task.details %></h3>
+
+  <% if @task.completed %>
+    <p>This task is completed 🌈</p>
+  <% else %>
+  <p>This task is not completed 😞</p>
+  <% end %>
+
+
+  <%= link_to "Edit task", edit_path %>
+  <%= link_to '🗑️', destroy_path, class: 'btn btn-light', data: { turbo_method: :delete, turbo_confirm: "Delete #{@task.title}?" } %>
+  <%= link_to "Back to list", tasks_path %>
+</div>
